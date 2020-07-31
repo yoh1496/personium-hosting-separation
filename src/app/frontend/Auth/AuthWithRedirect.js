@@ -12,7 +12,10 @@ export function OpenAuthPage({ cellUrl }) {
 
   useEffect(() => {
     console.log(cellUrl);
-    requestAuthURL(cellUrl, '/personium-hosting-separation/')
+    requestAuthURL(
+      cellUrl,
+      new URL('https://yoh1496.github.io/personium-hosting-separation/')
+    )
       .then(result => {
         location.href = result;
       })

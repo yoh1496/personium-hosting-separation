@@ -35,8 +35,12 @@ export function usePersoniumAuthentication(appCellUrl) {
 
       const oauthFormURL = new URL(res.url);
       const redirectURI = oauthFormURL.searchParams.get('redirect_uri');
-      const redirectURIobject = new URL(decodeURI(redirectURI));
-      redirectURIobject.pathname = redirect_uri;
+      let redirectURIobject = new URL(decodeURI(redirectURI));
+      if (redirect_uri instanceof URL) {
+        redirectURIobject = redirect_uri;
+      } else {
+        redirectURIobject.pathname = redirect_uri;
+      }
       oauthFormURL.searchParams.set(
         'redirect_uri',
         encodeURI(redirectURIobject.toString())

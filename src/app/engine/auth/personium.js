@@ -7,7 +7,7 @@ exports.personium = (function() {
   var _ = require('underscore')._;
   var accInfo = require('acc_info').accInfo;
   var _appCellAdminInfo = accInfo.APP_CELL_ADMIN_INFO;
-  var _refererList = [accInfo.allowedOrigin];
+  var _refererList = accInfo.allowedOrigins;
 
   personium.getAppCellUrl = function() {
     return accInfo.APP_CELL_URL;
@@ -166,7 +166,7 @@ exports.personium = (function() {
      */
     var refererUrlList = _refererList;
     var urlAllowed = false;
-    for (i = 0; i < refererUrlList.length; i++) {
+    for (let i = 0; i < refererUrlList.length; i++) {
       if (refererUrl && refererUrl.indexOf(refererUrlList[i]) == 0) {
         urlAllowed = true;
         break;
@@ -179,7 +179,9 @@ exports.personium = (function() {
           //"code": "400",
           message: {
             lang: 'en',
-            value: 'Cross-domain request not allowed.',
+            value:
+              'Cross-domain request not allowed. allowed:' +
+              refererUrlList.join(','),
           },
         }),
       ].join('');
