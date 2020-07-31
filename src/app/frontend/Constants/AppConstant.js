@@ -1,5 +1,6 @@
 export const AppConstant = {
-  cellUrl: 'https://app-ishiguro-02.appdev.personium.io/',
-  installBoxName: 'app-ishiguro-02',
-  barFileUrl: 'https://app-ishiguro-02.appdev.personium.io/app-ishiguro-02.bar',
+  cellUrl: 'https://personium-blank-app.appdev.personium.io/',
+  installBoxName: 'personium-blank-app',
+  barFileUrl:
+    'https://personium-blank-app.appdev.personium.io/__/personium-blank-app.bar',
 };
