@@ -24,6 +24,7 @@ export function useAuthWithWindow() {
       console.log(event.data);
 
       if (event.type === 'authDone') {
+        console.log(event.origin);
         event.source.postMessage('', event.origin);
       }
 
