@@ -23,12 +23,12 @@ export function useAuthWithWindow() {
 
       console.log(event.data);
 
-      if (event.type === 'authDone') {
+      if (event.data.type === 'authDone') {
         console.log(event.origin);
         event.source.postMessage('', event.origin);
       }
 
-      if (event.type === 'authCode') {
+      if (event.data.type === 'authCode') {
         const { code, state } = event.data;
         setResult({ code, state });
       }
