@@ -92,7 +92,7 @@ export function PersoniumAuthPage({ canSkip = true }) {
       <>
         <h2>AuthPage</h2>
         <h3>Choose authentication type</h3>
-        <a
+        {/* <a
           href="#"
           onClick={e => {
             e.preventDefault();
@@ -101,7 +101,7 @@ export function PersoniumAuthPage({ canSkip = true }) {
         >
           with Resource Owner Password Credential (not App auth)
         </a>
-        <br />
+        <br /> */}
         <a
           href="#"
           onClick={e => {
@@ -122,7 +122,7 @@ export function PersoniumAuthPage({ canSkip = true }) {
           with Authentication form in new tab (App auth)
         </a>
         <br />
-        <a
+        {/* <a
           href="#"
           onClick={e => {
             e.preventDefault();
@@ -130,7 +130,7 @@ export function PersoniumAuthPage({ canSkip = true }) {
           }}
         >
           with Authentication form in this tab (App auth)
-        </a>
+        </a> */}
       </>
     );
   }
