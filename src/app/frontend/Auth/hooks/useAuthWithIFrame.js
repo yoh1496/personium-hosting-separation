@@ -15,10 +15,14 @@ export function useAuthWithIFrame() {
         return;
       }
 
-      // it should be same origin and then you can call function in event.source.
-      const dat =
-        event.source.getCodeAndState && event.source.getCodeAndState();
-      setResult(dat);
+      if (event.data.type === 'authDone') {
+        event.source.postMessage('', event.origin);
+      }
+
+      if (event.data.type === 'authCode') {
+        const { code, state } = event.data;
+        setResult({ code, state });
+      }
     },
     [setResult]
   );

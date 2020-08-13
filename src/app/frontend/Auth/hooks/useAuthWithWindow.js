@@ -21,10 +21,7 @@ export function useAuthWithWindow() {
         return;
       }
 
-      console.log(event.data);
-
       if (event.data.type === 'authDone') {
-        console.log(event.origin);
         event.source.postMessage('', event.origin);
       }
 
