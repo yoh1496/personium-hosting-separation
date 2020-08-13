@@ -21,10 +21,16 @@ export function useAuthWithWindow() {
         return;
       }
 
-      // it should be same origin and then you can call function in event.source.
-      const dat =
-        event.source.getCodeAndState && event.source.getCodeAndState();
-      setResult(dat);
+      console.log(event.data);
+
+      if (event.type === 'authDone') {
+        event.source.postMessage('', event.origin);
+      }
+
+      if (event.type === 'authCode') {
+        const { code, state } = event.data;
+        setResult({ code, state });
+      }
     },
     [setResult]
   );
